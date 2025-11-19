@@ -1,0 +1,10 @@
+name: 'notes-app-dev'
+services:
+  notes-app-dev:
+    image: postgres:13
+    ports:
+      - '5440:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: notes-app-dev
