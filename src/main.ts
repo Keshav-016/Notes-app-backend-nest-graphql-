@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { AllExceptionFilter } from './filters/all-exception-filter';
 import { ConfigService } from '@nestjs/config';
 import { graphqlUploadExpress } from 'graphql-upload';
+import { env } from './env';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -18,6 +19,6 @@ async function bootstrap() {
   app.use(
     graphqlUploadExpress({ maxFileSize: 1024 * 1024 * 10, maxFiles: 10 }),
   );
-  await app.listen(process.env.PORT ?? 8000);
+  await app.listen(env.PORT);
 }
 bootstrap();
